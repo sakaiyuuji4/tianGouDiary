@@ -11,7 +11,7 @@ export class tianGouDiary extends plugin {
       /** https://oicqjs.github.io/oicq/#events */
       event: 'message',
       /** 优先级，数字越小等级越高 */
-      priority: 5000,
+      priority: 7000,
       rule: [
         {
           /** 命令正则匹配 */
@@ -24,7 +24,7 @@ export class tianGouDiary extends plugin {
   }
 
   /**
-   * #一言
+   * #舔狗日记
    * @param e oicq传递的事件参数e
    */
   async tianGou (e) {
@@ -39,10 +39,10 @@ export class tianGouDiary extends plugin {
       }).then((response) => {
         response.text().then((data) => {
           logger.info(`[接口结果] 舔狗日记：${data}`)
-          this.reply(`一言：${data}`)
+          this.reply(`${data}`)
           return true;
         }).catch((err) => {
-          return this.reply('一言接口请求失败')
+          return this.reply('舔狗日记接口请求失败')
         })
       })
     }
